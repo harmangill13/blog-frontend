@@ -27,7 +27,7 @@ function App() {
 
   const handleFormSubmission = async (data, type) => {
     if(type === 'new') { 
-      const response = await fetch(`${apiURL}/blogs/`, {
+      await fetch(`${apiURL}/blogs/`, {
         method: 'post', 
         headers: {
           "Content-Type": "application/json",
@@ -36,7 +36,7 @@ function App() {
       })
       getBlogs()
     } else {
-      const response = await fetch(`${apiURL}/blogs/${data.id}/`, {
+      await fetch(`${apiURL}/blogs/${data.id}/`, {
         method: 'put',
         headers: {
           "Content-Type": "application/json",
@@ -48,7 +48,7 @@ function App() {
   }
 
   const deleteBlog = async (id) => {
-    const response = await fetch(`${apiURL}/blogs/${id}/`,
+    await fetch(`${apiURL}/blogs/${id}/`,
     {
       method: 'delete'
     })
